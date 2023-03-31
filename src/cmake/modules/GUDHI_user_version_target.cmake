@@ -17,11 +17,11 @@ add_custom_command(TARGET user_version PRE_BUILD COMMAND ${CMAKE_COMMAND} -E
 # Generate bib files for Doxygen - cf. root CMakeLists.txt for explanation
 string(TIMESTAMP GUDHI_VERSION_YEAR "%Y")
 configure_file(${PROJECT_SOURCE_DIR}/biblio/how_to_cite_gudhi.bib.in "${CMAKE_CURRENT_BINARY_DIR}/biblio/how_to_cite_gudhi.bib" @ONLY)
-file(COPY "${{PROJECT_SOURCE_DIR}/biblio/bibliography.bib" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/biblio/")
-file(COPY "${{PROJECT_SOURCE_DIR}/biblio/test" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/biblio")
+file(COPY "${PROJECT_SOURCE_DIR}/biblio/bibliography.bib" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/biblio/")
+file(COPY "${PROJECT_SOURCE_DIR}/biblio/test" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/biblio")
 
 # append cgal citation inside bibliography - sphinx cannot deal with more than one bib file
-file(READ "${{PROJECT_SOURCE_DIR}/biblio/how_to_cite_cgal.bib" CGAL_CITATION_CONTENT)
+file(READ "${PROJECT_SOURCE_DIR}/biblio/how_to_cite_cgal.bib" CGAL_CITATION_CONTENT)
 file(APPEND "${CMAKE_CURRENT_BINARY_DIR}/biblio/bibliography.bib" "${CGAL_CITATION_CONTENT}")
 
 # Copy biblio files for user version
@@ -31,19 +31,19 @@ add_custom_command(TARGET user_version PRE_BUILD COMMAND ${CMAKE_COMMAND} -E
                    copy ${CMAKE_CURRENT_BINARY_DIR}/biblio/how_to_cite_gudhi.bib ${GUDHI_USER_VERSION_DIR}/biblio/how_to_cite_gudhi.bib)
 
 add_custom_command(TARGET user_version PRE_BUILD COMMAND ${CMAKE_COMMAND} -E
-                   copy ${{PROJECT_SOURCE_DIR}/README.md ${GUDHI_USER_VERSION_DIR}/README.md)
+                   copy ${PROJECT_SOURCE_DIR}/README.md ${GUDHI_USER_VERSION_DIR}/README.md)
 add_custom_command(TARGET user_version PRE_BUILD COMMAND ${CMAKE_COMMAND} -E
-                   copy ${{PROJECT_SOURCE_DIR}/LICENSE ${GUDHI_USER_VERSION_DIR}/LICENSE)
+                   copy ${PROJECT_SOURCE_DIR}/LICENSE ${GUDHI_USER_VERSION_DIR}/LICENSE)
 add_custom_command(TARGET user_version PRE_BUILD COMMAND ${CMAKE_COMMAND} -E
-                   copy ${{PROJECT_SOURCE_DIR}/src/CMakeLists.txt ${GUDHI_USER_VERSION_DIR}/CMakeLists.txt)
+                   copy ${PROJECT_SOURCE_DIR}/src/CMakeLists.txt ${GUDHI_USER_VERSION_DIR}/CMakeLists.txt)
 add_custom_command(TARGET user_version PRE_BUILD COMMAND ${CMAKE_COMMAND} -E
-                   copy ${{PROJECT_SOURCE_DIR}/src/GUDHIConfigVersion.cmake.in ${GUDHI_USER_VERSION_DIR}/GUDHIConfigVersion.cmake.in)
+                   copy ${PROJECT_SOURCE_DIR}/src/GUDHIConfigVersion.cmake.in ${GUDHI_USER_VERSION_DIR}/GUDHIConfigVersion.cmake.in)
 add_custom_command(TARGET user_version PRE_BUILD COMMAND ${CMAKE_COMMAND} -E
-                   copy ${{PROJECT_SOURCE_DIR}/src/GUDHIConfig.cmake.in ${GUDHI_USER_VERSION_DIR}/GUDHIConfig.cmake.in)
+                   copy ${PROJECT_SOURCE_DIR}/src/GUDHIConfig.cmake.in ${GUDHI_USER_VERSION_DIR}/GUDHIConfig.cmake.in)
 add_custom_command(TARGET user_version PRE_BUILD COMMAND ${CMAKE_COMMAND} -E
-                   copy ${{PROJECT_SOURCE_DIR}/CMakeGUDHIVersion.txt ${GUDHI_USER_VERSION_DIR}/CMakeGUDHIVersion.txt)
+                   copy ${PROJECT_SOURCE_DIR}/CMakeGUDHIVersion.txt ${GUDHI_USER_VERSION_DIR}/CMakeGUDHIVersion.txt)
 add_custom_command(TARGET user_version PRE_BUILD COMMAND ${CMAKE_COMMAND} -E
-                   copy ${{PROJECT_SOURCE_DIR}/src/Doxyfile.in ${GUDHI_USER_VERSION_DIR}/Doxyfile.in)
+                   copy ${PROJECT_SOURCE_DIR}/src/Doxyfile.in ${GUDHI_USER_VERSION_DIR}/Doxyfile.in)
 
 # As cython generates .cpp files in source, we have to copy all except cpp files from python directory
 file(GLOB_RECURSE PYTHON_FILES ${CMAKE_SOURCE_DIR}/${GUDHI_PYTHON_PATH}/*)

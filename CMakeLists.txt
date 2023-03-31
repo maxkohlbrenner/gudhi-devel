@@ -50,7 +50,7 @@ add_gudhi_module(Nerve_GIC)
 # GUDHI_SUB_DIRECTORIES is managed in CMAKE_MODULE_PATH/GUDHI_modules.cmake
 foreach(GUDHI_MODULE ${GUDHI_MODULES})
   foreach(GUDHI_SUB_DIRECTORY ${GUDHI_SUB_DIRECTORIES})
-    if(EXISTS ${CMAKE_SOURCE_DIR}/src/${GUDHI_MODULE}/${GUDHI_SUB_DIRECTORY}/CMakeLists.txt)
+    if(EXISTS ${CMAKE_CURRENT_LIST_DIR}/src/${GUDHI_MODULE}/${GUDHI_SUB_DIRECTORY}/CMakeLists.txt)
       add_subdirectory(src/${GUDHI_MODULE}/${GUDHI_SUB_DIRECTORY}/)
     endif()
   endforeach()
@@ -73,7 +73,7 @@ include(GUDHI_user_version_target)
 # For "make doxygen" - Requires GUDHI_USER_VERSION_DIR to be set - Done in GUDHI_user_version_target for dev version
 include(GUDHI_doxygen_target)
 
-configure_file(${CMAKE_SOURCE_DIR}/.github/for_maintainers/new_gudhi_version_creation.md "${CMAKE_CURRENT_BINARY_DIR}/" @ONLY)
+configure_file(${CMAKE_CURRENT_LIST_DIR}/.github/for_maintainers/new_gudhi_version_creation.md "${CMAKE_CURRENT_BINARY_DIR}/" @ONLY)
 
 message("++ GUDHI_MODULES list is:\"${GUDHI_MODULES}\"")
 message("++ GUDHI_MISSING_MODULES list is:\"${GUDHI_MISSING_MODULES}\"")

@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.8)
 
 project(GUDHIdev)
 
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/src/cmake/modules/")
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/src/cmake/modules/")
 include(CMakeGUDHIVersion.txt)
 include(GUDHI_options)
 

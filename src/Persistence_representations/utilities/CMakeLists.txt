@@ -1,6 +1,6 @@
 # Copy files, otherwise result files are created in sources
-file(COPY "${CMAKE_SOURCE_DIR}/data/persistence_diagram/first.pers" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/")
-file(COPY "${CMAKE_SOURCE_DIR}/data/persistence_diagram/second.pers" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/")
+file(COPY "${CMAKE_CURRENT_LIST_DIR}/../../../data/persistence_diagram/first.pers" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/")
+file(COPY "${CMAKE_CURRENT_LIST_DIR}/../../../data/persistence_diagram/second.pers" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/")
 
 function(add_persistence_representation_creation_utility creation_utility)
     add_executable ( ${creation_utility} ${creation_utility}.cpp )

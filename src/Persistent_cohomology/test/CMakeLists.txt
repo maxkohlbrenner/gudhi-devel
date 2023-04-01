@@ -10,7 +10,7 @@ if(TARGET TBB::tbb)
 endif()
 
 # Do not forget to copy test results files in current binary dir
-file(COPY "${CMAKE_SOURCE_DIR}/src/Persistent_cohomology/test/simplex_tree_file_for_unit_test.txt"
+file(COPY "${CMAKE_CURRENT_LIST_DIR}/simplex_tree_file_for_unit_test.txt"
      DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/)
 
 # Unitary tests

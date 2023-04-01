@@ -7,7 +7,7 @@ if (NOT CGAL_WITH_EIGEN3_VERSION VERSION_LESS 5.0.1)
   endif()
 
   # Do not forget to copy test files in current binary dir
-  file(COPY "${CMAKE_SOURCE_DIR}/data/points/alphacomplexdoc.off" DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/)
+  file(COPY "${CMAKE_CURRENT_LIST_DIR}/../../../data/points/alphacomplexdoc.off" DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/)
 
   gudhi_add_boost_test(Cech_complex_test_unit)
 

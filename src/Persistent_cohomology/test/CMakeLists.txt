@@ -25,7 +25,7 @@ if(GMPXX_FOUND AND GMP_FOUND)
   endif()
 
   # Do not forget to copy test results files in current binary dir
-  file(COPY "${CMAKE_SOURCE_DIR}/src/Persistent_cohomology/test/simplex_tree_file_for_multi_field_unit_test.txt"
+  file(COPY "${CMAKE_CURRENT_LIST_DIR}/simplex_tree_file_for_multi_field_unit_test.txt"
        DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/)
   # Unitary tests
   gudhi_add_boost_test(Persistent_cohomology_test_unit_multi_field)
